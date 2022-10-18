@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Roboto&display=swap');
+
+:root {
+    --green: hsl(135, 100%, 25%);
+    --yellow: hsl(47.5,100%,51%);
+    --orange: hsl(17, 100%, 56%)
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+    font-family: 'Black Ops One', cursive;
+    text-shadow: 2px 2px 0px rgba(255,203,5,0.7);
+}
+
+/* Nav Styles */
+
+.navbar {
+    background-color: black;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.logo {
+    color: var(--green);
+}
+
+.logo > span {
+    color: var(--yellow);
+}
+
+.nav-link {
+    font-size: 1.3rem;
+    color: var(--green);
+    text-shadow: 1px 1px 0px rgba(255,203,5,0.7);
+}
+
+.nav-link:hover {
+    color: var(--yellow) !important;
+    text-shadow: 1px 1px 0px rgba(0,128,32,0.7);
+    text-decoration: underline;
+}
+
+.navbar-toggler {
+    background-color: var(--yellow);
+    box-shadow: -2px -2px 4px rgba(255,255,255,0.5),
+        2px 2px 4px rgba(70,70,70,0.12);
+}
+
+.navbar-toggler:hover,
+.navbar-toggler:focus {
+    background-color: var(--green);
+    box-shadow: inset -2px -2px 4px rgba(255, 255, 255, 0.5), 
+           inset 2px 2px 4px rgba(70, 70, 70, 0.12);
+}
+
+
+
+
+
+/* Media Queries */ 
+
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-nav {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
