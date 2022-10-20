@@ -17,6 +17,12 @@
 body {
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
+    background-image: url("/media/paintballers-painting.png");
+    min-height: 90vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 :is(h1, h2, h3, h4, h5, h6) {
@@ -111,12 +117,7 @@ body {
 /* Index stylings  */
 
 .hero-section {
-    background-image: url("/media/paintballers-painting.png");
-    min-height: 90vh;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+   min-height: 90vh;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -126,6 +127,42 @@ body {
 .hero-text-container {
     max-width: 40%;
     animation: fade-in-left 1s ease-in-out;
+}
+
+.our-packages {
+    width: 100%;
+}
+
+.our-packages-heading-div {
+    transform: skewY(-5deg);
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,0,0,1) 25%, rgba(0,1,1,1) 75%, rgba(0,1,1,0.47942927170868344) 100%);
+    width: 100%;
+}
+
+.our-packages-heading {
+    width: 100%;
+    color: white;
+    margin-bottom: 10rem;
+    padding: 4rem;
+    text-align: center;
+    transform: skewY(5deg);
+}
+
+.our-packages-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.package-card {
+    width: 400px;
+}
+
+.package-card > img {
+    width: 100%;
+    object-fit: cover;
 }
 
 /* Animations */
