@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <section class="hero-section">
     <div class="text-container hero-text-container">
@@ -12,7 +13,7 @@
         <button class="btn">Book Now</button>
     </div>
 </section>
-<section class="our-packages">
+<section class="our-packages" id="our-packages">
     <div class="our-packages-heading-div">
         <h2 class="our-packages-heading">
             Our Packages
@@ -20,7 +21,7 @@
     </div>
     <div class="our-packages-container">
         {% for package in packages %}
-            <div class="text-container package-card">
+            <div class="text-container package-card faded">
                 <img src="{{ MEDIA_URL }}{{ package.img }}" alt="">
                 <h3>{{ package.title }}</h3>
                 <p>{{ package.synopsis }}</p>
@@ -29,4 +30,8 @@
         {% endfor %}
     </div>
 </section>
+{% endblock %}
+
+{% block postloadjs %}
+    <script src="{% static 'home/js/home.js' %}"></script>
 {% endblock %}

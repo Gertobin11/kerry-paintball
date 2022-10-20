@@ -24,7 +24,7 @@ if os.path.exists("env.py"):
     import env
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-t3ojg&ixo0h$c5ogi%nugczpvl2_xd6@+nne2@0zgc15#g$b(j'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('SECRET_KEY')
