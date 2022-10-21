@@ -126,6 +126,52 @@ body {
            inset 2px 2px 4px rgba(70, 70, 70, 0.12);
 }
 
+/* Footer styles */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: black;
+    padding-bottom: 1rem;
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    padding: 2.5% 0 0 5%;
+}
+
+.footer-contact > p {
+    color: white;
+    margin: 0;
+}
+
+.footer-nav {
+    padding: 2.5% 5% 0 0;
+}
+
+.nav-list > .nav-item > .nav-link {
+    color: white;
+}
+
+.find-us {
+    width: 500px;
+    height: 200px;
+}
+
+.find-us > h5 {
+    text-align: center;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 4px 3px 4px rgba(255,255,255,0.2),
+        6px 5px 4px rgba(0,0,0,0.7);
+}
+
 /* Index stylings  */
 
 .hero-section {
@@ -143,6 +189,7 @@ body {
 
 .our-packages {
     width: 100%;
+    margin-bottom: 10rem;
 }
 
 .our-packages-heading-div {
