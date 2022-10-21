@@ -6,11 +6,12 @@
     --green: hsl(135, 100%, 25%);
     --yellow: hsl(47.5,100%,51%);
     --orange: hsl(17, 100%, 56%);
+    --orange-opacity: rgba(216, 82, 21, 0.7);
     --mid-opacity: rgba(0, 0, 0, 0.5);
     --deep-opacity: rgba(0, 0, 0, 0.8);
 }
 
-* {
+a {
     transition: all 0.3s;
 }
 
@@ -23,6 +24,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: 100vh;
 }
 
 :is(h1, h2, h3, h4, h5, h6) {
@@ -44,6 +46,14 @@ body {
 
 .faded {
     opacity: 0;
+}
+
+.shrink {
+    transform: scaleX(0);
+}
+
+.grow-in-left {
+    animation: scale-left-to-right 1s ease-in-out;
 }
 
 /* Component Styles */
@@ -139,7 +149,7 @@ footer {
 .footer-contact {
     display: flex;
     flex-direction: column;
-    padding: 2.5% 0 0 5%;
+    padding: 2.5% 0 5%;
 }
 
 .footer-contact > p {
@@ -147,8 +157,16 @@ footer {
     margin: 0;
 }
 
+.footer-contact > h5 {
+    color: white;
+}
+
 .footer-nav {
     padding: 2.5% 5% 0 0;
+}
+
+.nav-list > h5 {
+    color: white;
 }
 
 .nav-list > .nav-item > .nav-link {
@@ -156,12 +174,14 @@ footer {
 }
 
 .find-us {
+    padding-top: 1rem;
     width: 500px;
     height: 200px;
 }
 
 .find-us > h5 {
     text-align: center;
+    color: white;
 }
 
 #map {
@@ -178,13 +198,22 @@ footer {
    min-height: 90vh;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     padding: 0 5%;
 }
 
 .hero-text-container {
     max-width: 40%;
     animation: fade-in-left 1s ease-in-out;
+}
+
+.price-list-cta {
+    background-color: var(--orange-opacity);
+    animation: fade-in-right 1s ease-in-out;
+}
+
+.price-list-cta > h3 {
+    color: black;
 }
 
 .our-packages {
@@ -230,6 +259,17 @@ footer {
     0% {
         opacity: 0%;
         transform: translateX(-200px);
+    }
+    100% {
+        opacity:100%;
+        transform: translateX(0px)
+    }
+}
+
+@keyframes fade-in-right {
+    0% {
+        opacity: 0%;
+        transform: translateX(200px);
     }
     100% {
         opacity:100%;

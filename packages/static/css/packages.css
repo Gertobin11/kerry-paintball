@@ -1,0 +1,18 @@
+.packages-main {
+    margin: 10rem 0;
+    width: 100%;
+}
+
+.packages-header {
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,0.43461134453781514) 0%, rgba(0,0,0,1) 25%, rgba(0,1,1,1) 75%, rgba(0,1,1,0.47942927170868344) 100%);
+    width: 100%;
+}
+
+.packages-header > h2 {
+    width: 100%;
+    color: white;
+    margin-bottom: 10rem;
+    padding: 4rem;
+    text-align: center;
+}

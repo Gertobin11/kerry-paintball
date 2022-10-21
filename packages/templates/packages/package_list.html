@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extraccs %}
+    <link rel="stylesheet" href="{% static 'css/packages.css' %}">
+{% endblock %}
+{% block content %}
+<main class="packages-main">
+    <div class="packages-header shrink">
+        <h2 class="logo">Our Packages</h2>
+    </div>
+    <div class="our-packages-container">
+        {% for package in object_list %}
+            <div class="text-container package-card faded">
+                <img src="{{ MEDIA_URL }}{{ package.img }}" alt="">
+                <h3>{{ package.title }}</h3>
+                <p>{{ package.synopsis }}</p>
+                <a class="btn" href="#">More Info</a>
+            </div>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}
+{% block postloadjs %}
+<script src="{% static 'home/js/home.js' %}"></script>
+<script src="{% static 'js/packages.js' %}"></script>
+{% endblock %}

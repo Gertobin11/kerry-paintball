@@ -1,3 +1,9 @@
 from django.shortcuts import render
+from django.views.generic import ListView
+from .models import Package
 
-# Create your views here.
+
+class Packages(ListView):
+    model = Package
+
+

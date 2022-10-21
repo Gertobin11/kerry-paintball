@@ -21,13 +21,15 @@
     />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    {% block extraccs %}
+    {% endblock %}
     <title>Kerry Paintball</title>
   </head>
   <body>
     <header>
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"
+          <a class="navbar-brand" href="{% url 'home' %}"
             ><h1 class="logo">PAINTBALL<span> KERRY</span></h1></a
           >
           <button
@@ -44,10 +46,10 @@
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">Home</a>
+                <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Packages</a>
+                <a class="nav-link" href="{% url 'packages' %}">Packages</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Gallery</a>
@@ -66,7 +68,7 @@
     {% block content %} {% endblock %}
     <footer>
       <div class="footer-contact">
-        <h5 class="logo">Paintball Kerry</h5>
+        <h5>PAINTBALL KERRY</h5>
         <p>Alderwood Rd,</p>
         <p>Lismore, Tralee, Co. Kerry</p>
         <p>V92 RX72</p>
@@ -74,18 +76,18 @@
         <p>Int: +353872854277</p>
       </div>
       <div class="find-us">
-        <h5 class="logo">Find Us</h5>
+        <h5>FIND US</h5>
         <div id="map"></div>
       </div>
       <div class="footer-nav">
         <nav>
           <ul class="nav-list">
-            <h5 class="logo">Site Nav</h5>
+            <h5>SITE NAV</h5>
             <li class="nav-item">
-              <a class="nav-link" href="">Home</a>
+              <a class="nav-link" href="{% url 'home' %}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="">Packages</a>
+              <a class="nav-link" href="{% url 'packages' %}">Packages</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="">Gallery</a>

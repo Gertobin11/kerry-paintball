@@ -1,4 +1,4 @@
-window,addEventListener(DOMContentLoaede, () => {
+window,addEventListener('DOMContentLoaded', () => {
     /*
    * Add JavaScript for Leaflet maps
    */
