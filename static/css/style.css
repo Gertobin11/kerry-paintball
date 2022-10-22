@@ -253,6 +253,21 @@ footer {
     object-fit: cover;
 }
 
+/* Modal Styles */ 
+
+.modal-header {
+    background-color: var(--green);
+}
+
+.modal-body {
+    background-color: black;
+    color: white;
+}
+
+.modal-footer {
+    background-color: var(--yellow);
+}
+
 /* Animations */
 
 @keyframes fade-in-left {
@@ -309,9 +324,22 @@ footer {
 }
 
 @media (max-width: 991px) {
+    .hero-section {
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
     .hero-text-container {
     max-width: 80%;
     width: auto;
+    }
+}
+
+@media (max-width: 550px) {
+    .hero-section {
+        padding-top: 10rem;
+    }
+    .hero-text-container {
+        max-width: 100%;
     }
 }
 

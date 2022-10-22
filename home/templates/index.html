@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+
+<!-- Landing page section with a cta to the booking enquiry -->
+
 <section class="hero-section">
     <div class="text-container hero-text-container">
         <h1 class="heading">PAINTBALL KERRY</h1>
@@ -14,9 +17,12 @@
     </div>
     <div class="text-container price-list-cta">
         <h3>CHECK OUT OUR PRICELIST</h3>
-        <button class="btn">HERE</button>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn">HERE</button>
     </div>
 </section>
+
+<!-- Show all the packages that are available-->
+
 <section class="our-packages" id="our-packages">
     <div class="our-packages-heading-div">
         <h2 class="our-packages-heading">
@@ -34,6 +40,31 @@
         {% endfor %}
     </div>
 </section>
+
+<!-- Modal for pricelist taken from Bootstrap 5 -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">PRICELIST</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          {% for package in packages %}
+          <li>
+            {{ package.title }}  -   <strong>€{{package.price }}</strong>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
 
 {% block postloadjs %}
