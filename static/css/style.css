@@ -259,6 +259,10 @@ footer {
     background-color: var(--green);
 }
 
+.modal-header > h5 {
+    color: white;
+}
+
 .modal-body {
     background-color: black;
     color: white;
@@ -340,6 +344,25 @@ footer {
     }
     .hero-text-container {
         max-width: 100%;
+    }
+    footer {
+        padding: 0 2%;
+        flex-direction: column;
+    }
+    .footer-contact {
+        width: 100%;
+    }
+    .footer-contact > * {
+        text-align: center;
+    }
+    .footer-nav {
+        width: 100%;
+    }
+    .nav-list > .nav-item > .nav-link {
+        text-align: center;
+    }
+    .find-us {
+        width: 100%;
     }
 }
 

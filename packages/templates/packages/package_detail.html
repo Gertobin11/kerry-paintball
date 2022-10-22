@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extraccs %}
+    <link rel="stylesheet" href="{% static 'css/packages.css' %}">
+{% endblock %}
+{% block content %}
+<main class="packages-main">
+    <div class="packages-header shrink">
+        <h2 class="logo">PACKAGE DETAILS</h2>
+    </div>
+    <section class="package-content text-container">
+        <div class="image-container">
+            <img src="{{ MEDIA_URL }}{{ package.img }}" alt="Package Image">
+        </div>
+        <div class="package-details">
+            <h3 class="logo">{{ package.title|upper }}</h3>
+            <p>{{ package.content }}</p>
+            <p>Book this package for €{{ package.price }} per person</p>
+            <button class="btn">Book Now</button>
+        </div>
+
+    </section>
+    
+</main>
+{% endblock %}
+{% block postloadjs %}
+    <script src="{% static 'js/packages.js' %}"></script>
+{% endblock %}

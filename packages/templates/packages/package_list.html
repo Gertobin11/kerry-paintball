@@ -14,7 +14,7 @@
                 <img src="{{ MEDIA_URL }}{{ package.img }}" alt="">
                 <h3>{{ package.title }}</h3>
                 <p>{{ package.synopsis }}</p>
-                <a class="btn" href="#">More Info</a>
+                <a class="btn" href="{% url 'package_detail' package.pk %}">More Info</a>
             </div>
         {% endfor %}
     </div>
