@@ -129,11 +129,56 @@ body {
         2px 2px 4px rgba(70,70,70,0.12);
 }
 
-.navbar-toggler:hover,
-.navbar-toggler:focus {
+.navbar-toggler:hover {
     background-color: var(--green);
     box-shadow: inset -2px -2px 4px rgba(255, 255, 255, 0.5), 
            inset 2px 2px 4px rgba(70, 70, 70, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .5s ease-in-out;
+    position: relative;
+}
+
+.burger-icon {
+    width: 2.5rem;
+    height: .3rem;
+    background-color: var(--orange);
+    border-radius: 5px;
+    margin: .7rem .1rem;
+    transition: all .5s ease-in-out;
+}
+
+.burger-icon::after,
+.burger-icon::before {
+    position: absolute;
+    content: '';
+    width: 2.5rem;
+    height: .3rem;
+    border-radius: 5px;
+    background-color: var(--orange);
+    transition: all .5s ease-in-out;
+    opacity: 1 !important;
+}
+
+.burger-icon::before {
+    transform: translate(-1.25rem, 0.6rem);
+}
+
+ .burger-icon::after {
+    transform: translate(-1.25rem, -0.6rem);
+}
+
+.navbar-toggler.open  .burger-icon::before {
+    transform: translate(-1.25rem, 0rem) rotate(-45deg)
+}
+
+.navbar-toggler.open  .burger-icon::after {
+    transform: translate(-1.25rem, 0rem) rotate(45deg)
+}
+
+.navbar-toggler.open .burger-icon {
+    background-color: transparent;
 }
 
 /* Footer styles */
@@ -316,7 +361,6 @@ footer {
         transform: scaleX(1);
     }
 }
-
 
 /* Media Queries */ 
 
