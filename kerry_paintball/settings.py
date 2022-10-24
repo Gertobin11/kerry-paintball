@@ -28,9 +28,10 @@ if os.path.isfile("env.py"):
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEVELOPMENT' in os.environ
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '.paintballkerry.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.paintballkerry.onrender.com']
+X_FRAME_OPTIONS = 'SAMEORIGION'
 
 
 # Application definition
@@ -150,8 +151,13 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_DIRS = (os.path.join(BASE_DIR / "static"),)
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+if 'MEDIA_RENDER' in os.environ:
+    MEDIA_URL = os.environ.get('MEDIA_RENDER')
+else:
+    '/media/'
 
-MEDIA_URL = '/media/'
+# MEDIA_URL ='/media/'
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
