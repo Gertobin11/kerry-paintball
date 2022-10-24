@@ -11,8 +11,11 @@ window.addEventListener("DOMContentLoaded", () => {
     },
     { rootMargin: "-40px" }
   );
-  const header = document.getElementsByClassName("info-header")[0];
-  observer.observe(header);
+  const headers = Array.from(document.getElementsByClassName("info-header"));
+  headers.forEach((header) => {
+    observer.observe(header)
+  })
+
   /*
    * Add JavaScript for Leaflet maps
    */
