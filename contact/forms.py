@@ -1,10 +1,18 @@
-from phonenumber_field.modelfields import PhoneNumberField
+from phonenumber_field.formfields import PhoneNumberField
+from phonenumber_field.widgets import PhoneNumberPrefixWidget
 from django.forms import ModelForm, widgets
 from .models import Contact
 
 
 class ContactForm(ModelForm):
-    phone_number = PhoneNumberField()
+    phone_number = PhoneNumberField(region="FR",
+                                    widget=PhoneNumberPrefixWidget(
+                                        initial="IE",
+                                        country_choices=[
+                                            ("IE", "Ireland"),
+                                            ("UK", "UK"),
+                                        ],)
+                                    )
 
     class Meta:
         model = Contact

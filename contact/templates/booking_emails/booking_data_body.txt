@@ -1,0 +1,8 @@
+Incoming booking enquiry from 
+{{ order.first_name }} {{ order.last_name }}
+Group type: {{ order.booking_type }}
+No. of players: {{ order.number_of_players }}
+Date: {{ order.date_to_play }}
+Time: {{ order.time_to_play }}
+Phone number: {{ order.phone_number }}
+Email: {{ order.email }}
