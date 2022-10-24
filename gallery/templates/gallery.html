@@ -9,7 +9,11 @@
       <h2 class="logo">OUR GALLERY</h2>
     </div>
     <section class="gallery-grid">
-        
+        {% for image in object_list %}
+        <figure class="faded gallery-item gallery-item-{{ forloop.counter }}">
+            <img title="{{ image.title }}" class="gallery-img" src="{{ MEDIA_URL }}{{ image.image }}" alt="{{ image.title }}">
+        </figure>
+        {% endfor %}
     </section>
 
 </main>
