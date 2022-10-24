@@ -6,11 +6,12 @@
     --green: hsl(135, 100%, 25%);
     --yellow: hsl(47.5,100%,51%);
     --orange: hsl(17, 100%, 56%);
+    --orange-opacity: rgba(216, 82, 21, 0.7);
     --mid-opacity: rgba(0, 0, 0, 0.5);
     --deep-opacity: rgba(0, 0, 0, 0.8);
 }
 
-* {
+a {
     transition: all 0.3s;
 }
 
@@ -45,6 +46,14 @@ body {
 
 .faded {
     opacity: 0;
+}
+
+.shrink {
+    transform: scaleX(0);
+}
+
+.grow-in-left {
+    animation: scale-left-to-right 1s ease-in-out;
 }
 
 /* Component Styles */
@@ -120,11 +129,56 @@ body {
         2px 2px 4px rgba(70,70,70,0.12);
 }
 
-.navbar-toggler:hover,
-.navbar-toggler:focus {
+.navbar-toggler:hover {
     background-color: var(--green);
     box-shadow: inset -2px -2px 4px rgba(255, 255, 255, 0.5), 
            inset 2px 2px 4px rgba(70, 70, 70, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .5s ease-in-out;
+    position: relative;
+}
+
+.burger-icon {
+    width: 2.5rem;
+    height: .3rem;
+    background-color: var(--orange);
+    border-radius: 5px;
+    margin: .7rem .1rem;
+    transition: all .5s ease-in-out;
+}
+
+.burger-icon::after,
+.burger-icon::before {
+    position: absolute;
+    content: '';
+    width: 2.5rem;
+    height: .3rem;
+    border-radius: 5px;
+    background-color: var(--orange);
+    transition: all .5s ease-in-out;
+    opacity: 1 !important;
+}
+
+.burger-icon::before {
+    transform: translate(-1.25rem, 0.6rem);
+}
+
+ .burger-icon::after {
+    transform: translate(-1.25rem, -0.6rem);
+}
+
+.navbar-toggler.open  .burger-icon::before {
+    transform: translate(-1.25rem, 0rem) rotate(-45deg)
+}
+
+.navbar-toggler.open  .burger-icon::after {
+    transform: translate(-1.25rem, 0rem) rotate(45deg)
+}
+
+.navbar-toggler.open .burger-icon {
+    background-color: transparent;
 }
 
 /* Footer styles */
@@ -140,7 +194,7 @@ footer {
 .footer-contact {
     display: flex;
     flex-direction: column;
-    padding: 2.5% 0 0 5%;
+    padding: 2.5% 0 5%;
 }
 
 .footer-contact > p {
@@ -148,8 +202,16 @@ footer {
     margin: 0;
 }
 
+.footer-contact > h5 {
+    color: white;
+}
+
 .footer-nav {
     padding: 2.5% 5% 0 0;
+}
+
+.nav-list > h5 {
+    color: white;
 }
 
 .nav-list > .nav-item > .nav-link {
@@ -157,12 +219,14 @@ footer {
 }
 
 .find-us {
+    padding-top: 1rem;
     width: 500px;
     height: 200px;
 }
 
 .find-us > h5 {
     text-align: center;
+    color: white;
 }
 
 #map {
@@ -179,13 +243,22 @@ footer {
    min-height: 90vh;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     padding: 0 5%;
 }
 
 .hero-text-container {
     max-width: 40%;
     animation: fade-in-left 1s ease-in-out;
+}
+
+.price-list-cta {
+    background-color: var(--orange-opacity);
+    animation: fade-in-right 1s ease-in-out;
+}
+
+.price-list-cta > h3 {
+    color: black;
 }
 
 .our-packages {
@@ -225,12 +298,42 @@ footer {
     object-fit: cover;
 }
 
+/* Modal Styles */ 
+
+.modal-header {
+    background-color: var(--green);
+}
+
+.modal-header > h5 {
+    color: white;
+}
+
+.modal-body {
+    background-color: black;
+    color: white;
+}
+
+.modal-footer {
+    background-color: var(--yellow);
+}
+
 /* Animations */
 
 @keyframes fade-in-left {
     0% {
         opacity: 0%;
         transform: translateX(-200px);
+    }
+    100% {
+        opacity:100%;
+        transform: translateX(0px)
+    }
+}
+
+@keyframes fade-in-right {
+    0% {
+        opacity: 0%;
+        transform: translateX(200px);
     }
     100% {
         opacity:100%;
@@ -259,7 +362,6 @@ footer {
     }
 }
 
-
 /* Media Queries */ 
 
 @media (min-width: 992px) {
@@ -270,9 +372,41 @@ footer {
 }
 
 @media (max-width: 991px) {
+    .hero-section {
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
     .hero-text-container {
     max-width: 80%;
     width: auto;
+    }
+}
+
+@media (max-width: 550px) {
+    .hero-section {
+        padding-top: 10rem;
+    }
+    .hero-text-container {
+        max-width: 100%;
+    }
+    footer {
+        padding: 0 2%;
+        flex-direction: column;
+    }
+    .footer-contact {
+        width: 100%;
+    }
+    .footer-contact > * {
+        text-align: center;
+    }
+    .footer-nav {
+        width: 100%;
+    }
+    .nav-list > .nav-item > .nav-link {
+        text-align: center;
+    }
+    .find-us {
+        width: 100%;
     }
 }
 
