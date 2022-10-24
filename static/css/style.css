@@ -270,6 +270,16 @@ footer {
     animation: fade-in-left 1s ease-in-out;
 }
 
+.gallery-link {
+    color: var(--yellow);
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+}
+
+.gallery-link:hover{
+    color: var(--orange);
+}
+
 .price-list-cta {
     background-color: var(--orange-opacity);
     animation: fade-in-right 1s ease-in-out;
