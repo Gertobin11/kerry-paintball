@@ -44,6 +44,10 @@ INSTALLED_APPS = [
     'home',
     'packages',
     'contact',
+    'gallery',
+
+    # Add on apps
+
     'phonenumber_field',
     "crispy_forms",
     "crispy_bootstrap5",

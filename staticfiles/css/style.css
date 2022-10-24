@@ -25,6 +25,8 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 :is(h1, h2, h3, h4, h5, h6) {
@@ -141,11 +143,11 @@ body {
 }
 
 .burger-icon {
-    width: 2.5rem;
+    width: 2rem;
     height: .3rem;
     background-color: var(--orange);
     border-radius: 5px;
-    margin: .7rem .1rem;
+    margin: .55rem 0;
     transition: all .5s ease-in-out;
 }
 
@@ -153,7 +155,7 @@ body {
 .burger-icon::before {
     position: absolute;
     content: '';
-    width: 2.5rem;
+    width: 2rem;
     height: .3rem;
     border-radius: 5px;
     background-color: var(--orange);
@@ -162,19 +164,19 @@ body {
 }
 
 .burger-icon::before {
-    transform: translate(-1.25rem, 0.6rem);
+    transform: translate(-1rem, 0.6rem);
 }
 
  .burger-icon::after {
-    transform: translate(-1.25rem, -0.6rem);
+    transform: translate(-1rem, -0.6rem);
 }
 
 .navbar-toggler.open  .burger-icon::before {
-    transform: translate(-1.25rem, 0rem) rotate(-45deg)
+    transform: translate(-1rem, 0rem) rotate(-45deg)
 }
 
 .navbar-toggler.open  .burger-icon::after {
-    transform: translate(-1.25rem, 0rem) rotate(45deg)
+    transform: translate(-1rem, 0rem) rotate(45deg)
 }
 
 .navbar-toggler.open .burger-icon {
@@ -189,6 +191,8 @@ footer {
     align-items: flex-start;
     background-color: black;
     padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .footer-contact {
@@ -385,6 +389,8 @@ footer {
 @media (max-width: 550px) {
     .hero-section {
         padding-top: 10rem;
+        gap: 2rem;
+        margin-bottom: 2rem;
     }
     .hero-text-container {
         max-width: 100%;
@@ -412,6 +418,13 @@ footer {
 
 @media (max-width: 462px) {
     h1.logo {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+    }
+
+}
+
+@media (max-width:350px){
+    h1.logo {
+        font-size: 1.2rem;
     }
 }

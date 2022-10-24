@@ -8,5 +8,6 @@ urlpatterns = [
     path('captcha/', include('captcha.urls')),
     path('', include("home.urls")),
     path('packages/', include('packages.urls')),
-    path('contact/', include('contact.urls'))
+    path('contact/', include('contact.urls')),
+    path('gallery/', include('gallery.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extraccs %}
+<link rel="stylesheet" href="{% static 'css/gallery.css' %}">
+{% endblock %}
+{% block content %}
+<main class="main-gallery">
+    <div class="gallery-header shrink">
+      <h2 class="logo">OUR GALLERY</h2>
+    </div>
+    <section class="gallery-grid">
+        
+    </section>
+
+</main>
+{% endblock %}
+{% block postloadjs %}
+<script src="{% static 'js/gallery.js' %}"></script>
+{% endblock %}
