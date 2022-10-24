@@ -28,4 +28,15 @@ window,addEventListener('DOMContentLoaded', () => {
       isOpen = false;
     }
   })
+
+  /*
+   * Remove the message after 3 seconds
+  */
+  const messageContainer = document.getElementsByClassName('message-container')[0];
+  if(messageContainer){
+    setTimeout(() => {
+      messageContainer.remove()
+    }, 4000)
+  }
+
 })

@@ -65,7 +65,17 @@
         </div>
       </nav>
     </header>
-    {% block content %} {% endblock %}
+    {% if messages %}
+    <div class="message-container">
+      <div class="alert alert-success">
+        {% for m in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ m }}</li>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+    {% block content %}
+    {% endblock %}
     <footer>
       <div class="footer-contact">
         <h5>PAINTBALL KERRY</h5>
