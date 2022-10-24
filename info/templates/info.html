@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% load static %} {% block extracss %}
+<link rel="stylesheet" href="{% static 'css/info.css' %}" />
+{% endblock %} {% block content %}
+
+<main class="main-info">
+  <div class="info-header">
+    <h2 class="logo">INFO</h2>
+  </div>
+  <section class="location">
+    <div class="big-map-container">
+      <h3>OUR LOCATION</h3>
+      <div id="big-map" class="big-map"></div>
+    </div>
+    <div class="text-container directions">
+      <h3>DIRECTIONS</h3>
+      <h4>Directions from Cork/Killarney via N22.</h4>
+      <p>
+        As you approach Tralee turn right at new Roundabout, straight thru
+        Ballingarry roundabout heading for Listowel, drive 2 miles. Next
+        roundabout exit left fr Tralee Tech Park Next roundabout turn right -
+        this is the Listowel road. Drive 1/4 mile you will see couple of
+        warehouses on your right. At Boyle Patio & stove centre turn right,
+        Alderwood Road. Drive 1 mile, entrance on left drive up through trees.
+      </p>
+      <h4>Directions from Limerick via N21</h4>
+      <p>
+        Come through Abbeyfeale, before Castleisland take exit for Tralee, right
+        again at the roundabout for Tralee, drive 7 miles then approaching
+        Tralee, with Ballingarry Hotel on your left, take 3rd exit for Listowel.
+        Drive 2 miles. Next roundabout exit left fr Tralee Tech Park Next
+        roundabout turn right - this is the Listowel road. Drive 1/4 mile you
+        will see couple of warehouses on your right. Boyle Patio & stove center
+        turn right, Alderwood Road. Drive 1 mile, entrance on left drive up thru
+        trees.
+      </p>
+    </div>
+  </section>
+</main>
+
+{% endblock %} {% block postloadjs %}
+<script src="{% static 'js/info.js' %}"></script>
+{% endblock %}

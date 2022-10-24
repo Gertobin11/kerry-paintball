@@ -9,5 +9,6 @@ urlpatterns = [
     path('', include("home.urls")),
     path('packages/', include('packages.urls')),
     path('contact/', include('contact.urls')),
-    path('gallery/', include('gallery.urls'))
+    path('gallery/', include('gallery.urls')),
+    path('info/', include('info.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

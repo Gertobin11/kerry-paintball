@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'packages',
     'contact',
     'gallery',
+    'info',
 
     # Add on apps
 
