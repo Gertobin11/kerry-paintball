@@ -43,7 +43,7 @@ body {
 }
 
 .fade-up {
-    animation: fade-up 1s linear;
+    animation: fade-up 1s ease-in-out;
 }
 
 .faded {
@@ -407,6 +407,10 @@ footer {
     .hero-text-container {
     max-width: 80%;
     width: auto;
+    animation: fade-up 1s ease-in-out;
+    }
+    .price-list-cta {
+        animation: fade-up 1s ease-in-out;
     }
 }
 
