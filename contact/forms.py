@@ -6,9 +6,10 @@ from .models import Contact
 
 
 class ContactForm(ModelForm):
-    phone_number = PhoneNumberField(region="FR",
+    phone_number = PhoneNumberField(region="IE",
                                     widget=PhoneNumberPrefixWidget(
                                         initial="IE",
+                                        attrs={'aria-label': 'Country Prefix'},
                                         country_choices=[
                                             ("IE", "Ireland"),
                                             ("UK", "UK"),

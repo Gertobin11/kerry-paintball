@@ -228,32 +228,29 @@ footer {
     padding: 2.5% 5% 0 0;
 }
 
-.nav-list > h5 {
+.footer-nav > h5 {
     color: white;
+    width: 100%;
+    text-align: center;
+}
+
+.nav-list {
+    list-style: none;
 }
 
 .nav-list > .nav-item > .nav-link {
     color: white;
+    font-size: 1.1rem;
 }
 
-.find-us {
-    padding-top: 1rem;
-    width: 500px;
-    height: 200px;
-}
-
-.find-us > h5 {
+.who-we-are {
+    padding-top: 2.5%;
     text-align: center;
     color: white;
+    height: 100%;
+    width: 30%;
 }
 
-#map {
-    height: 100%;
-    width: 100%;
-    border-radius: 20px;
-    box-shadow: 4px 3px 4px rgba(255,255,255,0.2),
-        6px 5px 4px rgba(0,0,0,0.7);
-}
 
 /* Index stylings  */
 
@@ -439,7 +436,7 @@ footer {
     .nav-list > .nav-item > .nav-link {
         text-align: center;
     }
-    .find-us {
+    .who-we-are {
         width: 100%;
     }
 }
