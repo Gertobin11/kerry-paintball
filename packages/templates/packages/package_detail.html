@@ -16,7 +16,7 @@
             <h3 class="logo">{{ package.title|upper }}</h3>
             <p>{{ package.content }}</p>
             <p>Book this package for €{{ package.price }} per person</p>
-            <button class="btn">Book Now</button>
+            <a href="{% url 'contact' %}" class="btn">Book Now</a>
         </div>
 
     </section>

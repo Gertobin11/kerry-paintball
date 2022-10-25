@@ -43,7 +43,7 @@ body {
 }
 
 .fade-up {
-    animation: fade-up 1s ease-in-out;
+    animation: fade-up 1s linear;
 }
 
 .faded {
