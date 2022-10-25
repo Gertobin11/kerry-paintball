@@ -1,6 +1,13 @@
-{% extends 'base.html' %} {% load static %} {% block extracss %}
+{% extends 'base.html' %}
+{% load static %}
+{% block metatags %}
+<meta name="description"
+  content="Paintball Kerry. This page has all the information you need to play a game with us from our downloadable consent forms to a map of our location.">
+{% endblock %}
+{% block extracss %}
 <link rel="stylesheet" href="{% static 'css/info.css' %}" />
-{% endblock %} {% block content %}
+{% endblock %}
+{% block content %}
 
 <main class="main-info">
   <div class="info-header">

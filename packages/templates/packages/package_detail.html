@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block metatags %}
+<meta name="description"
+    content="Paintball Kerry. This page contains all the details of the package you have chosen.">
+{% endblock %}
 {% block extracss %}
     <link rel="stylesheet" href="{% static 'css/packages.css' %}">
 {% endblock %}
