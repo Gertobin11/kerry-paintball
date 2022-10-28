@@ -20,6 +20,7 @@ class Contact(models.Model):
     date_to_play = models.DateField(validators=[MinValueValidator(
                                     datetime.date.today)])
     time_to_play = models.TimeField()
+    created  = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"

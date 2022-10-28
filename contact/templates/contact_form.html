@@ -21,7 +21,7 @@
   <div class="text-container booking-form">
     <form method="post">
       {% csrf_token %}
-      {% crispy form %}
+      {{ form|crispy}}
       <input class="btn" type="submit" value="Make Enquiry" />
     </form>
   </div>

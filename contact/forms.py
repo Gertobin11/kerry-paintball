@@ -19,7 +19,7 @@ class ContactForm(ModelForm):
 
     class Meta:
         model = Contact
-        fields = '__all__'
+        exclude = ['created',]
         widgets = {
             'date_to_play': widgets.DateInput(attrs={'type': 'date'}),
             'time_to_play': widgets.TimeInput(attrs={'type': 'time'})
