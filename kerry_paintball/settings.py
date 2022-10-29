@@ -30,7 +30,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.paintballkerry.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.paintballkerry.onrender.com',
+                 '.paintballkerry.com', '.kerrypaintball.com']
 X_FRAME_OPTIONS = 'SAMEORIGION'
 
 
