@@ -35,7 +35,6 @@ class Contact(SuccessMessageMixin, CreateView):
 
     def _send_booking_data(self, order):
         # Send Admin booking enquiry details
-        admin_email = order['email']
         subject = render_to_string(
             'booking_emails/booking_data_subject.txt',
             {'order': order}
@@ -48,7 +47,7 @@ class Contact(SuccessMessageMixin, CreateView):
             subject,
             body,
             settings.DEFAULT_FROM_EMAIL,
-            [settings.DEFAULT_FROM_EMAIL],
+            [settings.ADMIN_EMAIL],
             fail_silently=False
         )
 
