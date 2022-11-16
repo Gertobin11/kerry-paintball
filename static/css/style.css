@@ -226,7 +226,7 @@ footer {
 }
 
 .footer-nav {
-    padding: 2.5% 5% 0 0;
+    padding: 2.5% 0 0 0;
 }
 
 .footer-nav > h5 {
@@ -237,6 +237,7 @@ footer {
 
 .nav-list {
     list-style: none;
+    text-align: end;
 }
 
 .nav-list > .nav-item > .nav-link {
