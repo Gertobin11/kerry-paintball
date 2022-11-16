@@ -3,10 +3,10 @@
 /* General styles */
 
 :root {
-    --green: hsl(135, 100%, 25%);
+    --green: hsl(135, 89%, 37%);
     --yellow: hsl(47.5,100%,51%);
     --orange: hsl(17, 100%, 56%);
-    --orange-opacity: rgba(216, 82, 21, 0.7);
+    --orange-opacity: rgba(216, 82, 21, 0.8);
     --mid-opacity: rgba(0, 0, 0, 0.5);
     --deep-opacity: rgba(0, 0, 0, 0.8);
 }
@@ -26,7 +26,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
-    max-width: 100%;
+    width: 100%;
     overflow-x: hidden;
 }
 
