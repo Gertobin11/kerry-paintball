@@ -28,13 +28,13 @@ if os.path.isfile("env.py"):
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'PAINTBALL_DEVELOPMENT' in os.environ
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.paintballkerry.onrender.com',
                  '.paintballkerry.com', '.kerrypaintball.com']
 X_FRAME_OPTIONS = 'SAMEORIGION'
 
-
+SITE_ID = 1
 # Application definition
 
 INSTALLED_APPS = [
@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'cloudinary_storage',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     'cloudinary',
     'home',
     'packages',
@@ -162,7 +164,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_SENDER')
-ADMIN_EMAIL =os.environ.get('ADMIN_EMAIL')
+ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL')
 
 if 'PAINTBALL_DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
