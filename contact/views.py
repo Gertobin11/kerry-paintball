@@ -28,13 +28,13 @@ class Contact(SuccessMessageMixin, CreateView):
         send_mail(
             subject,
             body,
-            'test@test.ie',
-            [cust_email]
+            settings.DEFAULT_FROM_EMAIL,
+            [cust_email],
+            fail_silently=False
         )
 
     def _send_booking_data(self, order):
         # Send Admin booking enquiry details
-        admin_email = order['email']
         subject = render_to_string(
             'booking_emails/booking_data_subject.txt',
             {'order': order}
@@ -46,8 +46,9 @@ class Contact(SuccessMessageMixin, CreateView):
         send_mail(
             subject,
             body,
-            'test@test.ie',
-            [admin_email]
+            settings.DEFAULT_FROM_EMAIL,
+            [settings.ADMIN_EMAIL],
+            fail_silently=False
         )
 
     def form_valid(self, form):

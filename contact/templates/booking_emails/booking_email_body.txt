@@ -1,7 +1,7 @@
 Hello {{ order.first_name}} {{ order.last_name }},
 This is just a confirmation email to let you know that we have received your booking enquiry
-for your {{ order.booking_type }} for {{ order.number_of_players }} people on {{ order.date_to_play }}
-at {{ order.time_to_play }} We will be in touch with you shortly, but if you need further information, do not hesitiate to 
+for your {{ order.booking_type }} group for {{ order.number_of_players }} people on {{ order.date_to_play }}
+at {{ order.time_to_play }}. We will be in touch with you shortly, but if you need further information, do not hesitiate to 
 contact us on 0872854277
 Kind Regards
-Ann from Kerry Paintball
+Anna from Paintball Kerry
