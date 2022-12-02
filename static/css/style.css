@@ -222,6 +222,10 @@ footer {
     padding-left: 2rem;
 }
 
+.footer-contact > p > a {
+    color: var(--orange);
+}
+
 .footer-contact > h5 {
     color: white;
 }
