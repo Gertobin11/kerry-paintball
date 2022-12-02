@@ -6,43 +6,44 @@
 {% block content %}
 
 <!-- Landing page section with a cta to the booking enquiry -->
+<main>
+  <section class="hero-section">
+      <div class="text-container hero-text-container">
+          <h1 class="heading">PAINTBALL KERRY</h1>
+              <h3 class="sub-heading">The Original & Best Paintball in Ireland</h3>
+              <p>Paintball Kerry - Private Members Club - Is situated in Tralee, Kerry on 27 Acres including 20 acres of mature woodland
+                  and a 7 acre competition site. The paintball area consists of rugged terrain with trees, trails,
+                  hills, streams, bunkers, six bridges, a base camp, a village, a fort, a church with a sniper steeple,
+                  the Radio Hut on an Island and two 20ft bridges. Dotted around you will encounter Army Jeeps, Army Trucks and a
+                  fully operational tracked Army Tank. At Paintball Kerry we've got The Works! Check out our  <a class="gallery-link" href="{% url 'gallery' %}">Gallery</a></p>
+          <a href="{% url 'contact' %}" class="btn">Make Booking Enquiry</a>
+      </div>
+      <div class="text-container price-list-cta">
+          <h3>CHECK OUT OUR PRICELIST</h3>
+          <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn">HERE</button>
+      </div>
+  </section>
 
-<section class="hero-section">
-    <div class="text-container hero-text-container">
-        <h1 class="heading">PAINTBALL KERRY</h1>
-            <h3 class="sub-heading">The Original & Best Paintball in Ireland</h3>
-            <p>Paintball Kerry - Private Members Club - Is situated in Tralee, Kerry on 27 Acres including 20 acres of mature woodland
-                and a 7 acre competition site. The paintball area consists of rugged terrain with trees, trails,
-                hills, streams, bunkers, six bridges, a base camp, a village, a fort, a church with a sniper steeple,
-                the Radio Hut on an Island and two 20ft bridges. Dotted around you will encounter Army Jeeps, Army Trucks and a
-                fully operational tracked Army Tank. At Paintball Kerry we've got The Works! Check out our  <a class="gallery-link" href="{% url 'gallery' %}">Gallery</a></p>
-        <a href="{% url 'contact' %}" class="btn">Make Booking Enquiry</a>
-    </div>
-    <div class="text-container price-list-cta">
-        <h3>CHECK OUT OUR PRICELIST</h3>
-        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn">HERE</button>
-    </div>
-</section>
+  <!-- Show all the packages that are available-->
 
-<!-- Show all the packages that are available-->
-
-<section class="our-packages" id="our-packages">
-    <div class="our-packages-heading-div">
-        <h2 class="our-packages-heading">
-            Our Packages
-        </h2>
-    </div>
-    <div class="our-packages-container">
-        {% for package in packages %}
-            <div class="text-container package-card faded">
-                <img src="{{ MEDIA_URL }}{{ package.img }}" alt="">
-                <h3>{{ package.title }}</h3>
-                <p>{{ package.synopsis }}</p>
-                <a class="btn" href="{% url 'package_detail' package.pk %}">Package Details</a>
-            </div>
-        {% endfor %}
-    </div>
-</section>
+  <section class="our-packages" id="our-packages">
+      <div class="our-packages-heading-div">
+          <h2 class="our-packages-heading">
+              Our Packages
+          </h2>
+      </div>
+      <div class="our-packages-container">
+          {% for package in packages %}
+              <div class="text-container package-card faded">
+                  <img src="{{ MEDIA_URL }}{{ package.img }}" alt="">
+                  <h3>{{ package.title }}</h3>
+                  <p>{{ package.synopsis }}</p>
+                  <a class="btn" href="{% url 'package_detail' package.pk %}">Package Details</a>
+              </div>
+          {% endfor %}
+      </div>
+  </section>
+</main>
 
 <!-- Modal for pricelist taken from Bootstrap 5 -->
 

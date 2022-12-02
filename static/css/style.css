@@ -18,6 +18,10 @@ a {
 body {
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+main {
     background-image: url("https://res.cloudinary.com/dyg53cwvw/image/upload/v1666646929/media/adults_returning_to_base_prduh4.jpg");
     background-attachment: fixed;
     top: 0;
@@ -26,7 +30,6 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    overflow-x: hidden;
 }
 
 :is(h1, h2, h3, h4, h5, h6) {
@@ -297,7 +300,7 @@ footer {
 
 .our-packages {
     width: 100%;
-    margin-bottom: 10rem;
+    padding-bottom: 10rem;
 }
 
 .our-packages-heading-div {
@@ -446,7 +449,7 @@ footer {
     .footer-nav {
         width: 100%;
     }
-    .footer-nav > h5 {
+    .footer-contact > h5 {
         padding-left: 2rem;
     }
     .nav-list > .nav-item > .nav-link {
