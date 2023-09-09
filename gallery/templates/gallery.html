@@ -18,7 +18,7 @@
     </div>
     <section class="row w-100">
         {% for image in object_list %}
-            <div class=" col-12 col-md-4 mb-3">
+            <div role="button" class="height-300 col-12 col-md-4 mb-3">
                 <a class="gallery-item" data-fancybox data-caption="{{ image.title }}" data-src="{{ MEDIA_URL }}{{ image.image }}">
                     <img class="gallery-img" title="{{ image.title }}" src="{{ MEDIA_URL }}{{ image.image }}" alt="{{ image.title }}">
                 </a>
