@@ -61,6 +61,10 @@ main {
     animation: scale-left-to-right 1s ease-in-out;
 }
 
+.body-text {
+    font-family: 'Roboto', sans-serif;
+}
+
 /* Component Styles */
 
 .btn {

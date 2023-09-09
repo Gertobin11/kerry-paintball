@@ -9,7 +9,7 @@
     {% block metatags %}
     {% endblock %}
     <meta name="author" content="Ger Tobin">
-    <meta property="og:title" content="Paintball Kerry | Paintball games for kids, teenagers, adults and stag and hen parties">
+    <meta property="og:title" content="Paintball Kerry | Paintball games for all ages, birthday parties stag and hen parties">
     <meta property="og:description" content="Paintball Kerry | The ultimate paintball experience | Based just outside Tralee, very close to Killarney and Dingle | We run games for 8 year olds up stag parties and beyond">
     <meta property="og:url" content="https://paintballkerry.com/">
     <meta property="og:image" content="{% static 'favicons/favicon-16x16.png' %}">
@@ -42,8 +42,9 @@
     <header>
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'home' %}"
-            ><h1 class="logo">PAINTBALL<span> KERRY</span></h1></a
+          <a class="navbar-brand text-center" href="{% url 'home' %}"
+            ><h1 class="logo m-0">PAINTBALL<span> KERRY</span></h1>
+            <p class="p-0 text-white m-0">private members club</p></a
           >
           <button
             class="navbar-toggler"
@@ -103,7 +104,7 @@
         <p>We are Paintball Kerry. The longest running paintball site in Ireland. We were formerly Predator Paintball,
           but now we operate as a private members club, but offer the same great experience that has made us the first
           name in peoples minds when they think of paintball in Ireland. We thank you for checking out our website,
-          and we hope to see you in person at our site real soon.</p>
+          and we hope to see you at our site real soon.</p>
       </div>
       <div class="footer-nav">
         <h5>SITE NAV</h5>
