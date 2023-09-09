@@ -5,6 +5,10 @@
     content="Paintball Kerry. Check out the fun and action that our previous groups had. Plus have a look at some of our unique bases.">
 {% endblock %}
 {% block extracss %}
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+/>
     <link rel="stylesheet" href="{% static 'css/gallery.css' %}">
 {% endblock %}
 {% block content %}
@@ -12,16 +16,19 @@
     <div class="gallery-header shrink">
       <h2 class="logo">OUR GALLERY</h2>
     </div>
-    <section class="gallery-grid">
+    <section class="row w-100">
         {% for image in object_list %}
-        <figure class="faded gallery-item gallery-item-{{ forloop.counter }}">
-            <img title="{{ image.title }}" class="gallery-img" src="{{ MEDIA_URL }}{{ image.image }}" alt="{{ image.title }}">
-        </figure>
+            <div class=" col-12 col-md-4 mb-3">
+                <a class="gallery-item" data-fancybox data-caption="{{ image.title }}" data-src="{{ MEDIA_URL }}{{ image.image }}">
+                    <img class="gallery-img" title="{{ image.title }}" src="{{ MEDIA_URL }}{{ image.image }}" alt="{{ image.title }}">
+                </a>
+            </div>
         {% endfor %}
     </section>
 
 </main>
 {% endblock %}
 {% block postloadjs %}
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 <script src="{% static 'js/gallery.js' %}"></script>
 {% endblock %}
