@@ -25,7 +25,7 @@ if os.path.isfile("env.py"):
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.paintballkerry.onrender.com',
                  '.paintballkerry.com', '.kerrypaintball.com', "paintballkerry.gertobin.org"]
 X_FRAME_OPTIONS = 'SAMEORIGION'
@@ -168,7 +168,7 @@ else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_USE_TLS = True
     EMAIL_PORT = 587
-    EMAIL_HOST="smtp.gmail.com"
+    EMAIL_HOST = "smtp.gmail.com"
     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
@@ -177,3 +177,24 @@ else:
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'contact': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+        '': {
+            'handlers': ['console'],
+            'level': 'WARNING',
+        },
+    },
+}

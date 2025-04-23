@@ -5,7 +5,10 @@ from django.template.loader import render_to_string
 
 from django.conf import settings
 from .forms import ContactForm
-import os
+import logging
+import smtplib
+
+logger = logging.getLogger()
 
 
 class Contact(SuccessMessageMixin, CreateView):
@@ -14,26 +17,6 @@ class Contact(SuccessMessageMixin, CreateView):
     success_url = '/'
     success_message = ('Your enquiry has been successfully '
                        'recieved,we will be in contact shortly')
-
-    def _send_confirmation_email(self, order):
-        # Send the user a confirmation email
-        cust_email = order['email']
-        subject = render_to_string(
-            'booking_emails/booking_email_subject.txt',
-            {'order': order}
-        )
-        body = render_to_string(
-            'booking_emails/booking_email_body.txt',
-            {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL}
-        )
-        send_mail(
-            subject,
-            body,
-            settings.DEFAULT_FROM_EMAIL,
-            [cust_email],
-            fail_silently=False,
-            auth_password=os.environ.get('EMAIL_HOST_PASSWORD')
-        )
 
     def _send_booking_data(self, order):
         # Send Admin booking enquiry details
@@ -45,18 +28,28 @@ class Contact(SuccessMessageMixin, CreateView):
             'booking_emails/booking_data_body.txt',
             {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL}
         )
-        send_mail(
-            subject,
-            body,
-            settings.DEFAULT_FROM_EMAIL,
-            [settings.ADMIN_EMAIL],
-            fail_silently=False,
-            auth_password=os.environ.get('EMAIL_HOST_PASSWORD')
-        )
+
+        logger.info(f"Attempting to send booking email for contact form submission.")
+        logger.debug(f"Email Subject: '{subject}'")
+
+        try:
+            send_mail(
+                subject,
+                body,
+                settings.DEFAULT_FROM_EMAIL,
+                [settings.ADMIN_EMAIL],
+                fail_silently=False,
+            )
+            logger.info("email sent successfully")
+
+        except smtplib.SMTPException as e:
+            logger.error(f"SMTP error sending booking email: {e}", exc_info=True)
+
+        except Exception as e:
+            logger.error(f"Unexpected error sending booking email: {e}", exc_info=True)
 
     def form_valid(self, form):
         form.save()
         data = form.cleaned_data
-        self._send_confirmation_email(data)
         self._send_booking_data(data)
         return super().form_valid(form)
