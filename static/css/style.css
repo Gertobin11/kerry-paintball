@@ -193,7 +193,9 @@ main {
 /* Message Styles */
 
 .message-container {
-    margin-top: 5.5rem;
+    position: absolute;
+    top: 5rem;
+    right: 0;
     width: 100%;
     display: flex;
     align-items: flex-end;

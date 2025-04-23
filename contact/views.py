@@ -5,6 +5,7 @@ from django.template.loader import render_to_string
 
 from django.conf import settings
 from .forms import ContactForm
+import os
 
 
 class Contact(SuccessMessageMixin, CreateView):
@@ -30,7 +31,8 @@ class Contact(SuccessMessageMixin, CreateView):
             body,
             settings.DEFAULT_FROM_EMAIL,
             [cust_email],
-            fail_silently=False
+            fail_silently=False,
+            auth_password=os.environ.get('EMAIL_HOST_PASSWORD')
         )
 
     def _send_booking_data(self, order):
@@ -48,7 +50,8 @@ class Contact(SuccessMessageMixin, CreateView):
             body,
             settings.DEFAULT_FROM_EMAIL,
             [settings.ADMIN_EMAIL],
-            fail_silently=False
+            fail_silently=False,
+            auth_password=os.environ.get('EMAIL_HOST_PASSWORD')
         )
 
     def form_valid(self, form):
