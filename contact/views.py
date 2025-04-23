@@ -6,6 +6,7 @@ from django.template.loader import render_to_string
 from django.conf import settings
 from .forms import ContactForm
 from yagmail import SMTP
+import os
 
 
 class Contact(SuccessMessageMixin, CreateView):
@@ -26,24 +27,8 @@ class Contact(SuccessMessageMixin, CreateView):
             {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL}
         )
 
-        logger.info(f"Attempting to send booking email for contact form submission.")
-        logger.debug(f"Email Subject: '{subject}'")
-
-        try:
-            send_mail(
-                subject,
-                body,
-                settings.DEFAULT_FROM_EMAIL,
-                [settings.ADMIN_EMAIL],
-                fail_silently=False,
-            )
-            logger.info("email sent successfully")
-
-        except smtplib.SMTPException as e:
-            logger.error(f"SMTP error sending booking email: {e}", exc_info=True)
-
-        except Exception as e:
-            logger.error(f"Unexpected error sending booking email: {e}", exc_info=True)
+        yag = SMTP(os.environ.get("EMAIL_HOST_USER"), os.environ.get("EMAIL_HOST_PASSWORD"))
+        yag.send(os.environ.get("ADMIN_EMAIL"), subject, body)
 
     def form_valid(self, form):
         form.save()
