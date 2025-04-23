@@ -42,8 +42,35 @@ class Contact(SuccessMessageMixin, CreateView):
         except Exception as e:
             print(e.message)
 
+    def _send_confirmation_email(self, order):
+        # Send the user a confirmation email
+        cust_email = order['email']
+        subject = render_to_string(
+            'booking_emails/booking_email_subject.txt',
+            {'order': order}
+        )
+        body = render_to_string(
+            'booking_emails/booking_email_body.txt',
+            {'order': order, 'contact_email': settings.ADMIN_EMAIL}
+        )
+
+        message = Mail(
+            from_email=os.environ.get('EMAIL_SENDER'),
+            to_emails=[cust_email],
+            subject=subject,
+            html_content=body)
+        try:
+            sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
+            response = sg.send(message)
+            print(response.status_code)
+            print(response.body)
+            print(response.headers)
+        except Exception as e:
+            print(e.message)
+
     def form_valid(self, form):
         form.save()
         data = form.cleaned_data
         self._send_booking_data(data)
+        self._send_confirmation_email(data)
         return super().form_valid(form)
