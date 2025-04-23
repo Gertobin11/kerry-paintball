@@ -1,11 +1,12 @@
 from django.views.generic import CreateView
 from django.contrib.messages.views import SuccessMessageMixin
-from django.core.mail import send_mail
 from django.template.loader import render_to_string
 
 from django.conf import settings
 from .forms import ContactForm
-from yagmail import SMTP
+
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 import os
 
 
@@ -27,8 +28,19 @@ class Contact(SuccessMessageMixin, CreateView):
             {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL}
         )
 
-        yag = SMTP(os.environ.get("EMAIL_HOST_USER"), os.environ.get("EMAIL_HOST_PASSWORD"))
-        yag.send(os.environ.get("ADMIN_EMAIL"), subject, body)
+        message = Mail(
+            from_email=os.environ.get('EMAIL_SENDER'),
+            to_emails=[os.environ.get("ADMIN_EMAIL")],
+            subject=subject,
+            html_content=body)
+        try:
+            sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
+            response = sg.send(message)
+            print(response.status_code)
+            print(response.body)
+            print(response.headers)
+        except Exception as e:
+            print(e.message)
 
     def form_valid(self, form):
         form.save()
