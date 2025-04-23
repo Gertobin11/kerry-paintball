@@ -5,10 +5,7 @@ from django.template.loader import render_to_string
 
 from django.conf import settings
 from .forms import ContactForm
-import logging
-import smtplib
-
-logger = logging.getLogger()
+from yagmail import SMTP
 
 
 class Contact(SuccessMessageMixin, CreateView):
