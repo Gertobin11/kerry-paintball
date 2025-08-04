@@ -18,7 +18,7 @@ a {
 body {
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
-    background-image: url("/media/paintballers-painting.png");
+    background-image: url("https://res.cloudinary.com/dyg53cwvw/image/upload/v1666646929/media/adults_returning_to_base_prduh4.jpg");
     min-height: 90vh;
     background-attachment: fixed;
     background-position: center;

@@ -152,7 +152,8 @@
       crossorigin="anonymous"
     ></script>
     <!-- Custom JS -->
-    <script src="{% static 'js/base.js' %}"></script>
     {% block postloadjs %} {% endblock %}
+    <script defer src="{% static 'js/base.js' %}"></script>
+    
   </body>
 </html>
