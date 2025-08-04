@@ -1,12 +1,11 @@
 from django.views.generic import CreateView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.template.loader import render_to_string
+from django.core.mail import EmailMessage
 
 from django.conf import settings
 from .forms import ContactForm
 
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail
 import os
 
 
@@ -23,50 +22,51 @@ class Contact(SuccessMessageMixin, CreateView):
             'booking_emails/booking_data_subject.txt',
             {'order': order}
         )
-        body = render_to_string(
+
+        html_content = render_to_string(
             'booking_emails/booking_data_body.txt',
             {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL}
         )
-
-        message = Mail(
-            from_email=os.environ.get('EMAIL_SENDER'),
-            to_emails=[os.environ.get("ADMIN_EMAIL")],
+        message = EmailMessage(
             subject=subject,
-            html_content=body)
+            body=html_content,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            to=[os.environ.get("ADMIN_EMAIL")]
+        )
+
+        message.content_subtype = "html"
+
         try:
-            sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
-            response = sg.send(message)
-            print(response.status_code)
-            print(response.body)
-            print(response.headers)
+            message.send()
+            print("Admin booking data email sent successfully.")
         except Exception as e:
-            print(e.message)
+            print(f"Error sending admin email: {e}")
 
     def _send_confirmation_email(self, order):
-        # Send the user a confirmation email
         cust_email = order['email']
         subject = render_to_string(
             'booking_emails/booking_email_subject.txt',
             {'order': order}
         )
-        body = render_to_string(
+
+        html_content = render_to_string(
             'booking_emails/booking_email_body.txt',
             {'order': order, 'contact_email': settings.ADMIN_EMAIL}
         )
 
-        message = Mail(
-            from_email=os.environ.get('EMAIL_SENDER'),
-            to_emails=[cust_email],
+        message = EmailMessage(
             subject=subject,
-            html_content=body)
+            body=html_content,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            to=[cust_email]
+        )
+        message.content_subtype = "html"
+
         try:
-            sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
-            response = sg.send(message)
-            print(response.status_code)
-            print(response.body)
-            print(response.headers)
+            message.send()
+            print("Confirmation email sent to customer successfully.")
         except Exception as e:
-            print(e.message)
+            print(f"Error sending confirmation email: {e}")
 
     def form_valid(self, form):
         form.save()
