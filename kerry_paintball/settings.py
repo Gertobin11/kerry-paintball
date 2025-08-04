@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = False
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.paintballkerry.onrender.com',
                  '.paintballkerry.com', '.kerrypaintball.com', "paintballkerry.gertobin.org"]
-X_FRAME_OPTIONS = 'SAMEORIGION'
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 SITE_ID = 1
 
@@ -88,6 +88,13 @@ TEMPLATES = [
         },
     },
 ]
+
+STORAGES = {
+    "staticfiles": {
+        "BACKEND":  'whitenoise.storage.ManifestStaticFilesStorage',
+    },
+}
+
 
 WSGI_APPLICATION = 'kerry_paintball.wsgi.application'
 
@@ -154,7 +161,10 @@ STATICFILES_DIRS = [
 
 # Tell Django where to copy all static files for production
 STATIC_ROOT = BASE_DIR / "staticfiles"
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
 # Whitenoise storage for compression and caching headers
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
@@ -163,7 +173,7 @@ if 'CLOUDINARY_URL' in os.environ:
     MEDIA_URL = os.environ.get('MEDIA_RENDER', '')
 else:
     # Use a local URL for development environment
-    MEDIA_URL = '/media/'
+    MEDIA_URL = 'media/'
 
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
