@@ -3,10 +3,10 @@
 /* General styles */
 
 :root {
-    --green: hsl(135, 89%, 37%);
+    --green: hsl(135, 100%, 25%);
     --yellow: hsl(47.5,100%,51%);
     --orange: hsl(17, 100%, 56%);
-    --orange-opacity: rgba(216, 82, 21, 0.8);
+    --orange-opacity: rgba(216, 82, 21, 0.7);
     --mid-opacity: rgba(0, 0, 0, 0.5);
     --deep-opacity: rgba(0, 0, 0, 0.8);
 }
@@ -18,19 +18,15 @@ a {
 body {
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
-    overflow-x: hidden;
-    position: relative;
-}
-
-main {
     background-image: url("https://res.cloudinary.com/dyg53cwvw/image/upload/v1666646929/media/adults_returning_to_base_prduh4.jpg");
+    min-height: 90vh;
     background-attachment: fixed;
-    top: 0;
-    left: 0;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    width: 100%;
+    min-height: 100vh;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 :is(h1, h2, h3, h4, h5, h6) {
@@ -60,10 +56,6 @@ main {
 
 .grow-in-left {
     animation: scale-left-to-right 1s ease-in-out;
-}
-
-.body-text {
-    font-family: 'Roboto', sans-serif;
 }
 
 /* Component Styles */
@@ -194,14 +186,11 @@ main {
 /* Message Styles */
 
 .message-container {
-    position: absolute;
-    top: 5rem;
-    right: 0;
+    margin-top: 5.5rem;
     width: 100%;
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
-    background: transparent;
 }
 
 .alert .alert-success {
@@ -229,12 +218,6 @@ footer {
 .footer-contact > p {
     color: white;
     margin: 0;
-    border-left: 3px solid var(--green);
-    padding-left: 2rem;
-}
-
-.footer-contact > p > a {
-    color: var(--orange);
 }
 
 .footer-contact > h5 {
@@ -242,35 +225,35 @@ footer {
 }
 
 .footer-nav {
-    padding: 2.5% 0 0 0;
+    padding: 2.5% 5% 0 0;
 }
 
-.footer-nav > h5 {
+.nav-list > h5 {
     color: white;
-    width: 100%;
-    text-align: center;
-}
-
-.nav-list {
-    list-style: none;
-    text-align: end;
-    border-right: 3px solid var(--green);
-    padding-right: 2rem;
 }
 
 .nav-list > .nav-item > .nav-link {
     color: white;
-    font-size: 1.1rem;
 }
 
-.who-we-are {
-    padding-top: 2.5%;
+.find-us {
+    padding-top: 1rem;
+    width: 500px;
+    height: 200px;
+}
+
+.find-us > h5 {
     text-align: center;
     color: white;
-    height: 100%;
-    width: 30%;
 }
 
+#map {
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 4px 3px 4px rgba(255,255,255,0.2),
+        6px 5px 4px rgba(0,0,0,0.7);
+}
 
 /* Index stylings  */
 
@@ -287,16 +270,6 @@ footer {
     animation: fade-in-left 1s ease-in-out;
 }
 
-.gallery-link {
-    color: var(--yellow);
-    text-decoration: none;
-    transition: all .3s ease-in-out;
-}
-
-.gallery-link:hover{
-    color: var(--orange);
-}
-
 .price-list-cta {
     background-color: var(--orange-opacity);
     animation: fade-in-right 1s ease-in-out;
@@ -308,7 +281,7 @@ footer {
 
 .our-packages {
     width: 100%;
-    padding-bottom: 10rem;
+    margin-bottom: 10rem;
 }
 
 .our-packages-heading-div {
@@ -424,17 +397,10 @@ footer {
     .hero-text-container {
     max-width: 80%;
     width: auto;
-    animation: fade-up 1s ease-in-out;
-    }
-    .price-list-cta {
-        animation: fade-up 1s ease-in-out;
     }
 }
 
 @media (max-width: 550px) {
-    body {
-        height: 110vh;;
-    }
     .hero-section {
         padding-top: 10rem;
         gap: 2rem;
@@ -449,7 +415,6 @@ footer {
     }
     .footer-contact {
         width: 100%;
-        margin-top: 3rem;
     }
     .footer-contact > * {
         text-align: center;
@@ -457,20 +422,11 @@ footer {
     .footer-nav {
         width: 100%;
     }
-    .footer-contact > h5 {
-        padding-left: 2rem;
-    }
     .nav-list > .nav-item > .nav-link {
         text-align: center;
     }
-    .nav-list {
-        padding: 0;
-    }
-    .who-we-are {
+    .find-us {
         width: 100%;
-    }
-    .package-card {
-        width: 90%;
     }
 }
 
