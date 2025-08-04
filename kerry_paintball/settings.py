@@ -157,13 +157,14 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 STATIC_URL = '/static/'
 # Whitenoise storage for compression and caching headers
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-if 'MEDIA_RENDER' in os.environ:
-    MEDIA_URL = os.environ.get('MEDIA_RENDER')
+
+if 'CLOUDINARY_URL' in os.environ:
+    # Use Cloudinary's URL for production media files
+    MEDIA_URL = os.environ.get('MEDIA_RENDER', '')
 else:
-    '/media/'
+    # Use a local URL for development environment
+    MEDIA_URL = '/media/'
 
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_SENDER')
